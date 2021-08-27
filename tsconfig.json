@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "module": "es6",
     // Target latest version of ECMAScript.
     "target": "ESNext",
@@ -18,10 +19,17 @@
     "isolatedModules": true,
     // Don't emit; allow Babel to transform files.
     "noEmit": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "strictNullChecks": true,
   },
   "include": [
     "src",
     "test"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
