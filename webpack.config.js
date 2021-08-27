@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const APP_DIR = path.resolve(__dirname, './src');
 const PUBLIC_DIR = path.resolve(__dirname, './public');
-const BUILD_DIR = path.resolve(__dirname, './dist');
+const BUILD_DIR = path.resolve(__dirname, './build');
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: BUILD_DIR + "/dist",
+    path: BUILD_DIR,
   },
   module: {
     rules: [
