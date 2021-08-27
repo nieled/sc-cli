@@ -18,6 +18,7 @@
       "dom"
     ],
     "strictNullChecks": true,
+    "skipLibCheck": true,
   },
   "include": [
     "src",
