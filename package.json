@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist/*",
     "build": "yarn clean && webpack",
     "serve": "webpack serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest test --coverage"
   },
   "keywords": [],
   "author": "",
@@ -23,15 +26,25 @@
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
     "mini-css-extract-plugin": "^2.2.0",
+    "prettier": "^2.3.2",
     "typescript": "^4.4.2",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
