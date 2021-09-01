@@ -1,14 +1,32 @@
 {
   "extends": [
-    "plugin:react/recommended",
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "prettier",
-    "eslint-config-prettier"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
-    "@typescript-eslint"
+    "react",
+    "@typescript-eslint",
+    "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-console": "warn",
+    "no-eval": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": "off"
+  },
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -20,10 +38,12 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "settings": {
     "react": {
+      "pragma": "React",
       "version": "detect"
     }
   }
