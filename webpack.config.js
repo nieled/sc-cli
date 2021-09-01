@@ -11,17 +11,17 @@ const isDevMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   mode: isDevMode ? 'development' : 'production',
   entry: {
-    app: APP_DIR + "/index"
+    app: APP_DIR + "/index.tsx"
   },
   output: {
     filename: 'bundle.js',
-    path: BUILD_DIR,
+    path: BUILD_DIR
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
-        loader: 'babel-loader',
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -39,7 +39,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js']
   },
   devServer: {
     static: {
