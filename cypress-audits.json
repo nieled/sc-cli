@@ -1,6 +1,14 @@
 {
-  "component": {
-    "componentFolder": "src",
-    "testFiles": "**/*audit.{ts,tsx}"
-  }
+  "baseUrl": "http://localhost:8080/",
+  "testFiles": "**/*.audits.ts",
+  "supportFile": "test/cypress/support/index.ts",
+  "video": false,
+  "integrationFolder": "test/cypress/integration",
+  "fixturesFolder": "test/cypress/fixtures",
+  "pluginsFile": "test/cypress/plugins/index.ts",
+  "screenshotsFolder": "build/cypress/screenshots",
+  "chromeWebSecurity": true,
+  "viewportWidth": 1200,
+  "viewportHeight": 720,
+  "retries": 2
 }
