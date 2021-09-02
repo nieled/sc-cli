@@ -26,6 +26,7 @@ function App() {
 										key={item.key}
 										path={item.path}
 										component={item.component || DefaultComponent}
+										exact
 									/>
 								))
 							) : (
@@ -33,6 +34,7 @@ function App() {
 									key={route.key}
 									path={route.path}
 									component={route.component || DefaultComponent}
+									exact
 								/>
 							)
 						)}
