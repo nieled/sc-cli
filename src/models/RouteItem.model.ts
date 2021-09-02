@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ComponentType, FC } from 'react';
 
 interface RouteItem {
 	key: string;
@@ -6,6 +6,8 @@ interface RouteItem {
 	path?: string;
 	component?: FC;
 	subRoutes?: Array<RouteItem>;
+	enabled?: boolean;
+	icon?: ComponentType;
 }
 
 export default RouteItem;

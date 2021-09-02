@@ -11,8 +11,7 @@ const DefaultComponent = () => <div>No Component Defined.</div>;
 function App() {
 	const [useDefaultTheme, toggle] = useReducer(theme => !theme, true);
 
-	let theme: Theme = createTheme(useDefaultTheme ? lightTheme : darkTheme);
-	theme = responsiveFontSizes(theme);
+	const theme: Theme = createTheme(useDefaultTheme ? lightTheme : darkTheme);
 
 	return (
 		<ThemeProvider theme={theme}>
