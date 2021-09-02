@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes, Theme, ThemeProvider } from '@material-ui/core';
+import { createTheme, responsiveFontSizes, Theme, ThemeProvider } from '@material-ui/core';
 import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -11,7 +11,7 @@ const DefaultComponent = () => <div>No Component Defined.</div>;
 function App() {
 	const [useDefaultTheme, toggle] = useReducer(theme => !theme, true);
 
-	let theme: Theme = createMuiTheme(useDefaultTheme ? lightTheme : darkTheme);
+	let theme: Theme = createTheme(useDefaultTheme ? lightTheme : darkTheme);
 	theme = responsiveFontSizes(theme);
 
 	return (
