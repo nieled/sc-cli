@@ -3,7 +3,7 @@
 printWidth: 80
 singleQuote: true
 tabWidth: 2
-useTabs: false
+useTabs: true
 
 # js and ts rules:
 arrowParens: avoid
