@@ -5,10 +5,10 @@ import Header from './components/Header';
 import ErrorBoundary from './shared/error/error-boundary';
 
 ReactDOM.render(
-  <ErrorBoundary>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ErrorBoundary>,
-  document.getElementById('root')
+	<ErrorBoundary>
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	</ErrorBoundary>,
+	document.getElementById('root')
 );
