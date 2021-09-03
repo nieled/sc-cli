@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "noEmit": false,
     "lib": [
+      "esnext",
       "es6",
       "dom"
     ],

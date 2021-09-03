@@ -2,6 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "types": [
       "jest",
       "webpack-env"
