@@ -7,11 +7,11 @@ import {
 	ListItemText,
 	Icon,
 	IconButton,
+	ListItemIcon,
 } from '@material-ui/core';
 import clsx from 'clsx';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { routes } from '../config/routes';
 import RouteItem from '../models/RouteItem.model';
 import DefaultIcon from '@material-ui/icons/FileCopy';
 
@@ -51,14 +51,13 @@ const MenuItem = (props: MenuItemProps) => {
 		>
 			<Tooltip title={route.title || ''} placement={'right'}>
 				<ListItem button disabled={!route.enabled}>
-					<IconButton
+					<ListItemIcon
 						className={clsx({
 							[classes.selected]: location.pathname === route.path,
 						})}
-						size={'medium'}
 					>
 						<Icon component={route.icon || DefaultIcon} />
-					</IconButton>
+					</ListItemIcon>
 					<ListItemText primary={route.title} />
 				</ListItem>
 			</Tooltip>
