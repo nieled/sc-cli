@@ -81,6 +81,15 @@
       "always"
     ],
     "guard-for-in": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "@material-ui/*/*/*",
+          "!@material-ui/core/test-utils/*"
+        ]
+      }
+    ],
     "no-labels": "error",
     "no-caller": "error",
     "no-bitwise": "error",
