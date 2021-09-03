@@ -45,6 +45,8 @@ module.exports = {
     static: {
       directory: BUILD_DIR
     },
+    historyApiFallback: true,
+    static: './',
     compress: true,
     port: 9000,
   },
