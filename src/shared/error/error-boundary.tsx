@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-interface IErrorBoundaryProps {
+interface ErrorBoundaryProps {
 	readonly children: JSX.Element | JSX.Element[];
 }
 
-interface IErrorBoundaryState {
+interface ErrorBoundaryState {
 	readonly error: any;
 	readonly errorInfo: any;
 }
 
-class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
-	readonly state: IErrorBoundaryState = {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+	readonly state: ErrorBoundaryState = {
 		error: undefined,
 		errorInfo: undefined,
 	};
