@@ -1,5 +1,5 @@
 // APP
-export const APP_TITLE = 'MTG shoebox';
+export const APP_TITLE = 'MTG Shoebox';
 
 // UI CONSTANTS
 export const FOOTER_HEIGHT = 30;

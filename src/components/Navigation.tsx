@@ -51,6 +51,7 @@ const Navigation = ({ open, handleMenuClose }: NavigationProps) => {
 	return (
 		<Drawer
 			variant="permanent"
+			data-testid="drawer"
 			className={clsx(classes.drawer, {
 				[classes.drawerOpen]: open,
 				[classes.drawerClose]: !open,
@@ -63,7 +64,7 @@ const Navigation = ({ open, handleMenuClose }: NavigationProps) => {
 			}}
 		>
 			<div className={classes.toolbar}>
-				<IconButton onClick={handleMenuClose}>
+				<IconButton onClick={handleMenuClose} data-testid="nav-menu-close" >
 					<ChevronLeftIcon htmlColor="#fff" />
 				</IconButton>
 			</div>

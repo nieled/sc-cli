@@ -5,7 +5,8 @@
     "esModuleInterop": true,
     "types": [
       "jest",
-      "webpack-env"
+      "webpack-env",
+      "@testing-library/jest-dom"
     ]
   }
 }
