@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import PageTitle from '../components/PageTitle';
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -9,7 +10,7 @@ const useStyles = makeStyles(() =>
 
 const Home: FC = (): ReactElement => {
 	const classes = useStyles();
-	return <h1>Home component</h1>;
+	return <PageTitle title="Home component" />;
 };
 
 export default Home;

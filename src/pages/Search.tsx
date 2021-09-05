@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
+import PageTitle from '../components/PageTitle';
 
-const Search = (): ReactElement => <div>Search component</div>;
+const Search = (): ReactElement => <PageTitle title="Search component" />;
 
 export default Search;

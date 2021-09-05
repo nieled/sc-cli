@@ -21,11 +21,15 @@ const useStyles = makeStyles((theme: Theme) =>
 			transition: 'box-shadow',
 			transitionDuration: '1s',
 		},
+		nested: {
+			marginLeft: theme.spacing(2),
+		},
 		listItemDisabled: {
 			cursor: 'not-allowed',
 		},
 	})
 );
+
 interface MenuItemProps {
 	route: RouteItem;
 }
