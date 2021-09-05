@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React, { FC, ReactNode, useReducer } from 'react';
 import { DRAWER_WIDTH, FOOTER_HEIGHT } from '../utils/constants';
+import Footer from './Footer';
 
 import Header from './Header';
 import Navigation from './Navigation';
@@ -43,7 +44,11 @@ interface LayoutProps {
 	children: ReactNode;
 }
 
-const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme, children }: LayoutProps) => {
+const Layout: FC<LayoutProps> = ({
+	toggleTheme,
+	useDefaultTheme,
+	children,
+}: LayoutProps) => {
 	const classes = useStyles();
 	const [open, toggle] = useReducer(drawerOpen => !drawerOpen, true);
 
@@ -65,6 +70,9 @@ const Layout: FC<LayoutProps> = ({ toggleTheme, useDefaultTheme, children }: Lay
 				<div className={classes.toolbar} />
 				{children}
 			</main>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
 };

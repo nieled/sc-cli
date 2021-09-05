@@ -35,7 +35,9 @@ const MenuItem = (props: MenuItemProps) => {
 	const classes = useStyles();
 	const location = useLocation();
 
-	const handleNavigate = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
+	const handleNavigate = (
+		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+	): void => {
 		if (!route.enabled) e.preventDefault();
 	};
 

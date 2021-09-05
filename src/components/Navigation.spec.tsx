@@ -33,10 +33,10 @@ describe('Navigation', () => {
 		mountedWrapper = undefined;
 	});
 
-  it('Renders the Navigation component', () => {
+	it('Renders the Navigation component', () => {
 		const html = wrapper();
 
-    // Renders menu items
+		// Renders menu items
 		expect(html).toContain('Home');
 		expect(html).toContain('Search');
 		expect(html).toContain('Collection');
@@ -53,6 +53,6 @@ describe('Navigation', () => {
 		const html = wrapper({ ...devProps, open: false });
 
 		expect(html).toContain('drawerClose');
-    expect(html).not.toContain('drawerOpen');
+		expect(html).not.toContain('drawerOpen');
 	});
 });

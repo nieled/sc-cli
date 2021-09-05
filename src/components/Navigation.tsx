@@ -1,6 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { createStyles, makeStyles, Theme, IconButton, Drawer } from '@material-ui/core';
+import {
+	createStyles,
+	makeStyles,
+	Theme,
+	IconButton,
+	Drawer,
+} from '@material-ui/core';
 import { DRAWER_WIDTH } from '../utils/constants';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AppMenu from './AppMenu';
@@ -64,7 +70,7 @@ const Navigation = ({ open, handleMenuClose }: NavigationProps) => {
 			}}
 		>
 			<div className={classes.toolbar}>
-				<IconButton onClick={handleMenuClose} data-testid="nav-menu-close" >
+				<IconButton onClick={handleMenuClose} data-testid="nav-menu-close">
 					<ChevronLeftIcon htmlColor="#fff" />
 				</IconButton>
 			</div>

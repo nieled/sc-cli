@@ -61,7 +61,12 @@ interface HeaderProps {
 	useDefaultTheme: boolean;
 }
 
-const Header = ({ open, handleMenuOpen, toggleTheme, useDefaultTheme }: HeaderProps) => {
+const Header = ({
+	open,
+	handleMenuOpen,
+	toggleTheme,
+	useDefaultTheme,
+}: HeaderProps) => {
 	const classes = useStyles();
 	return (
 		<AppBar

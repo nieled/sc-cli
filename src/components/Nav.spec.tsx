@@ -7,7 +7,6 @@ import { createMemoryHistory } from 'history';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-
 import Navigation from './Navigation';
 
 describe('Navigation', () => {
@@ -35,10 +34,10 @@ describe('Navigation', () => {
 		mountedWrapper = undefined;
 	});
 
-  it('Renders the Navigation component', () => {
+	it('Renders the Navigation component', () => {
 		const html = wrapper();
 
-    // Renders menu items
+		// Renders menu items
 		expect(html).toContain('Home');
 		expect(html).toContain('Search');
 		expect(html).toContain('Collection');
@@ -55,18 +54,22 @@ describe('Navigation', () => {
 		const html = wrapper({ ...devProps, open: false });
 
 		expect(html).toContain('drawerClose');
-    expect(html).not.toContain('drawerOpen');
+		expect(html).not.toContain('drawerOpen');
 	});
 
-	it("Handles opening and closing navbar", () => {
-
+	it('Handles opening and closing navbar', () => {
 		// const [ open, setOpen ] = React.useState(true);
 		const setOpen = (x: boolean) => !x;
 		const history = createMemoryHistory();
 
 		const { getByTestId } = render(
 			<Router history={history}>
-				<Navigation open={true} handleMenuClose={() => {setOpen(!open)}} />
+				<Navigation
+					open={true}
+					handleMenuClose={() => {
+						setOpen(!open);
+					}}
+				/>
 			</Router>
 		);
 
