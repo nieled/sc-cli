@@ -7,7 +7,6 @@ axios.defaults.baseURL = SERVER_API_URL;
 
 export const setupAxiosInterceptors = () => {
 	const onRequestSuccess = (config: AxiosRequestConfig) => {
-		config.headers.ContentType = 'application/json';
 		return config;
 	};
 

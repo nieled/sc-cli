@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CardResponse } from '../models/scryfallAPI.type';
 
 export const API_PATH = '/cards';
 
@@ -10,8 +11,9 @@ class CardsServiceImpl {
 	}
 
 	public searchCards(query: string): Promise<CardResponse> {
+		const reqUrl = `${this.cardsUrl}/search`;
 		return axios
-			.get<CardResponse>(`${this.cardsUrl}/search`, { params: { q: query } })
+			.get<CardResponse>(reqUrl, { params: { q: query } })
 			.then(response => response.data);
 	}
 }
