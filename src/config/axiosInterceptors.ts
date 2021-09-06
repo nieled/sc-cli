@@ -13,4 +13,6 @@ export const setupAxiosInterceptors = () => {
 
 	const onResponseSuccess = (response: AxiosResponse) => response;
 	const onResponseError = (err: AxiosError) => err;
+
+	axios.interceptors.request.use(onRequestSuccess);
 };
