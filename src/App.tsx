@@ -13,6 +13,7 @@ import { queryClient } from './config/queryClient';
 import { routes } from './config/routes';
 import RouteItem from './models/RouteItem.model';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import Card from './pages/Card';
 
 const DefaultComponent = () => <div>No Component Defined.</div>;
 
@@ -29,6 +30,12 @@ function App() {
 				<Router>
 					<Switch>
 						<Layout toggleTheme={toggle} useDefaultTheme={useDefaultTheme}>
+							<Route
+								key={'router-card-by-id'}
+								path={'/card/:id'}
+								component={Card}
+								exact
+							/>
 							{routes.map((route: RouteItem) =>
 								route.subRoutes ? (
 									route.subRoutes.map((item: RouteItem) => (

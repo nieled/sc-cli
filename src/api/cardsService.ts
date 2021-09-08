@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CardResponse } from '../models/scryfallAPI.type';
+import { Card, CardResponse } from '../models/scryfallAPI.type';
 
 export const API_PATH = '/cards';
 
@@ -11,9 +11,15 @@ class CardsServiceImpl {
 	}
 
 	public searchCards(query: string): Promise<CardResponse> {
-		const reqUrl = `${this.cardsUrl}/search`;
 		return axios
-			.get<CardResponse>(reqUrl, { params: { q: query } })
+			.get<CardResponse>(`${this.cardsUrl}/search`, { params: { q: query } })
+			.then(response => response.data);
+	}
+
+	public getCard(cardId: string): Promise<Card> {
+		// if (typeof cardId === 'undefined') Promise.reject(new Error('Invalid id'));
+		return axios
+			.get<Card>(`${this.cardsUrl}/${cardId}`)
 			.then(response => response.data);
 	}
 }

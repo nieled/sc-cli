@@ -49,9 +49,9 @@ const AppMenu = () => {
 
 	return (
 		<List>
-			{routes.map((route: RouteItem) => (
-				<>
-					{route.subRoutes ? (
+			{routes.map((route: RouteItem) => {
+				return route.subRoutes ? (
+					<>
 						<ListItem button onClick={handleClick}>
 							<ListItemIcon>
 								<IconButton
@@ -74,19 +74,19 @@ const AppMenu = () => {
 							>
 								{open ? <ExpandLess /> : <ExpandMore />}
 							</Tooltip>
-							<Collapse in={open} timeout="auto" unmountOnExit>
-								<List className={classes.nested}>
-									{route.subRoutes.map((subRoute: RouteItem) => (
-										<MenuItem key={`${subRoute.key}`} route={subRoute} />
-									))}
-								</List>
-							</Collapse>
 						</ListItem>
-					) : (
-						<MenuItem key={route.key} route={route} />
-					)}
-				</>
-			))}
+						<Collapse in={open} timeout="auto" unmountOnExit>
+							<List className={classes.nested}>
+								{route.subRoutes.map((subRoute: RouteItem) => (
+									<MenuItem key={`${subRoute.key}`} route={subRoute} />
+								))}
+							</List>
+						</Collapse>
+					</>
+				) : (
+					<MenuItem key={route.key} route={route} />
+				)
+			})}
 		</List>
 	);
 };
