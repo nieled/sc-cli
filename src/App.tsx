@@ -1,5 +1,5 @@
 import {
-	createTheme,
+	unstable_createMuiStrictModeTheme as createMuiTheme,
 	responsiveFontSizes,
 	Theme,
 	ThemeProvider,
@@ -12,7 +12,6 @@ import { darkTheme, lightTheme } from './config/appTheme';
 import { queryClient } from './config/queryClient';
 import { routes } from './config/routes';
 import RouteItem from './models/RouteItem.model';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import Card from './pages/Card';
 
 const DefaultComponent = () => <div>No Component Defined.</div>;
@@ -21,7 +20,7 @@ function App() {
 	const [useDefaultTheme, toggle] = useReducer(theme => !theme, true);
 
 	const theme: Theme = responsiveFontSizes(
-		createTheme(useDefaultTheme ? lightTheme : darkTheme)
+		createMuiTheme(useDefaultTheme ? lightTheme : darkTheme)
 	);
 
 	return (
@@ -58,7 +57,7 @@ function App() {
 						</Layout>
 					</Switch>
 				</Router>
-				<ReactQueryDevtools initialIsOpen />
+				{/* <ReactQueryDevtools initialIsOpen /> */}
 			</ThemeProvider>
 		</QueryClientProvider>
 	);
