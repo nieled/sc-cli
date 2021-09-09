@@ -15,8 +15,8 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: "[name].[chunkhash].js",
-    chunkFilename: "[name].[chunkhash].chunk.js",
+    filename: "app/[name].[chunkhash].js",
+    chunkFilename: "app/[id].[chunkhash].chunk.js",
     publicPath: '/',
   },
   module: {
@@ -50,6 +50,7 @@ module.exports = {
     port: 9000,
   },
   optimization: {
+    moduleIds: 'named',
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {

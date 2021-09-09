@@ -13,6 +13,7 @@ import { queryClient } from './config/queryClient';
 import { routes } from './config/routes';
 import RouteItem from './models/RouteItem.model';
 import Card from './pages/Card';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const DefaultComponent = () => <div>No Component Defined.</div>;
 
@@ -56,7 +57,7 @@ function App() {
 						</Layout>
 					</Switch>
 				</Router>
-				{/* <ReactQueryDevtools initialIsOpen /> */}
+				<ReactQueryDevtools initialIsOpen />
 			</ThemeProvider>
 		</QueryClientProvider>
 	);
