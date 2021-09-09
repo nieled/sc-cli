@@ -2,7 +2,7 @@ import { CssBaseline, Theme } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React, { FC, ReactNode, useReducer } from 'react';
-import { DRAWER_WIDTH, FOOTER_HEIGHT } from '../utils/constants';
+import { DRAWER_WIDTH, FOOTER_HEIGHT } from '../../utils/constants';
 import Footer from './Footer';
 
 import Header from './Header';

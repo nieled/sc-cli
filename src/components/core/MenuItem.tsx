@@ -12,8 +12,8 @@ import {
 import clsx from 'clsx';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import RouteItem from '../models/RouteItem.model';
 import DefaultIcon from '@material-ui/icons/FileCopy';
+import RouteItem from '../../models/RouteItem.model';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

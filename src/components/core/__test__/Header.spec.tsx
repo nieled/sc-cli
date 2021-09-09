@@ -6,8 +6,8 @@ import { render } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
-import Header from './Header';
-import { APP_TITLE } from '../utils/constants';
+import Header from '../Header';
+import { APP_TITLE } from '../../../utils/constants';
 
 describe('Header', () => {
 	let mountedWrapper: any;

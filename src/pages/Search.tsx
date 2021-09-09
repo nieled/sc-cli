@@ -3,8 +3,8 @@ import React, { ReactElement } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { CardsService } from '../api/cardsService';
-import CardDetails from '../components/CardDetails';
-import PageTitle from '../components/PageTitle';
+import CardDetails from '../components/core/CardDetails';
+import PageTitle from '../components/core/PageTitle';
 import { Card } from '../models/scryfallAPI.type';
 
 const useStyles = makeStyles(() =>

@@ -17,9 +17,9 @@ import { useLocation } from 'react-router-dom';
 import DefaultIcon from '@material-ui/icons/FileCopy';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import { routes } from '../config/routes';
-import RouteItem from '../models/RouteItem.model';
 import MenuItem from './MenuItem';
+import RouteItem from '../../models/RouteItem.model';
+import { routes } from '../../config/routes';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -85,7 +85,7 @@ const AppMenu = () => {
 					</>
 				) : (
 					<MenuItem key={route.key} route={route} />
-				)
+				);
 			})}
 		</List>
 	);

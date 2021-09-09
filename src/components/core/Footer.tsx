@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { FOOTER_HEIGHT, FOOTER_TEXT } from '../utils/constants';
+import { FOOTER_HEIGHT, FOOTER_TEXT } from '../../utils/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

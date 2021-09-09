@@ -7,7 +7,7 @@ import {
 import React, { useReducer } from 'react';
 import { QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from './components/Layout';
+import Layout from './components/core/Layout';
 import { darkTheme, lightTheme } from './config/appTheme';
 import { queryClient } from './config/queryClient';
 import { routes } from './config/routes';

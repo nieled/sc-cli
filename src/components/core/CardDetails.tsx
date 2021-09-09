@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import PageTitle from './PageTitle';
-import { Card } from '../models/scryfallAPI.type';
+import { Card } from '../../models/scryfallAPI.type';
 
 const useStyles = makeStyles(() =>
 	createStyles({

@@ -7,9 +7,9 @@ import {
 	IconButton,
 	Drawer,
 } from '@material-ui/core';
-import { DRAWER_WIDTH } from '../utils/constants';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AppMenu from './AppMenu';
+import { DRAWER_WIDTH } from '../../utils/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({

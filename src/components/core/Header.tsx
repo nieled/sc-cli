@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import clsx from 'clsx';
 import React, { FC, ReactElement } from 'react';
-import { APP_TITLE, DRAWER_WIDTH } from '../utils/constants';
+import { APP_TITLE, DRAWER_WIDTH } from '../../utils/constants';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import MenuIcon from '@material-ui/icons/Menu';

@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { createStyles, makeStyles, Typography } from '@material-ui/core';
-import PageTitle from '../components/PageTitle';
+import PageTitle from '../components/core/PageTitle';
 
 const useStyles = makeStyles(() =>
 	createStyles({
