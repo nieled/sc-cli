@@ -3,6 +3,7 @@ import {
 	Container,
 	createStyles,
 	Grid,
+	ImageListItem,
 	makeStyles,
 	Paper,
 	Theme,
@@ -22,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: theme.spacing(2),
 			textAlign: 'center',
 		},
+		cardImage: {
+			maxWidth: '100%',
+		},
 	})
 );
 
@@ -36,10 +40,23 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 		<>
 			<Container className={classes.root}>
 				<Grid container spacing={3}>
-					<Grid item xs={3}>
-						Card column
+					<Grid item xs={4}>
+						<Grid
+							container
+							direction="column"
+							justifyContent="space-around"
+							alignItems="stretch"
+						>
+							<Box>
+								<img
+									className={classes.cardImage}
+									src={card.image_uris.normal}
+									alt={card.name}
+								/>
+							</Box>
+						</Grid>
 					</Grid>
-					<Grid item xs={9}>
+					<Grid item xs={8}>
 						<Grid
 							container
 							direction="column"
@@ -47,10 +64,10 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 							alignItems="stretch"
 						>
 							<Grid container direction="row" justifyContent="space-between">
-								<Typography>{card.name}</Typography>
+								<Typography variant="h4">{card.name}</Typography>
 								<Typography>{card.mana_cost}</Typography>
 							</Grid>
-							<Typography>{card.type_line}</Typography>
+							<Typography variant="subtitle1">{card.type_line}</Typography>
 							<Grid>
 								{card.oracle_text.split('\n').map((elm, key) => (
 									<p key={key}>{elm}</p>
