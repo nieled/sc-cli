@@ -11,6 +11,7 @@ import {
 import React, { ReactElement } from 'react';
 import PageTitle from '../core/PageTitle';
 import { Card } from '../../models/scryfallAPI.type';
+import { CardLegalities } from './CardLegalities';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -63,6 +64,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 										: `$${card.prices.usd ?? ''}${card.prices.usd_foil ?? ''}`}
 								</Typography>
 							</Grid>
+							<CardLegalities legalities={card.legalities} />
 						</Grid>
 					</Grid>
 				</Grid>
