@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component<
 		errorInfo: undefined,
 	};
 
-	componentDidCatch(error: any, errorInfo: any) {
+	componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
 		this.setState({
 			error,
 			errorInfo,
@@ -30,7 +30,7 @@ class ErrorBoundary extends React.Component<
 		if (errorInfo) {
 			const errorDetails =
 				process.env.NODE_ENV === 'development' ? (
-					<details className="preserve-space">
+					<details>
 						{error && error.toString()}
 						<br />
 						{errorInfo.componentStack}

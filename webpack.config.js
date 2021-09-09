@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const APP_DIR = path.resolve(__dirname, './src');
 const PUBLIC_DIR = path.resolve(__dirname, './public');
-const BUILD_DIR = path.resolve(__dirname, './build');
+const BUILD_DIR = path.resolve(__dirname, './dist');
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
@@ -14,7 +14,9 @@ module.exports = {
     app: APP_DIR + "/index.tsx"
   },
   output: {
-    filename: 'bundle.js',
+    publicPath: '/',
+    chunkFilename: "[name].[chunkhash].chunk.js",
+    filename: "[name].[chunkhash].js",
     path: BUILD_DIR
   },
   module: {
@@ -42,12 +44,24 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   devServer: {
-    static: {
-      directory: BUILD_DIR
-    },
+    static: BUILD_DIR,
     historyApiFallback: true,
     compress: true,
     port: 9000,
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          chunks: "all",
+          filename: "[name].[chunkhash].js",
+          name: "vendors",
+          test: /[\\/]node_modules[\\/]/
+        },
+      },
+      maxSize: 256 * 1024,
+    },
   },
   devtool: 'inline-source-map',
   plugins: [

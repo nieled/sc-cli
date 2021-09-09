@@ -33,7 +33,6 @@ function App() {
 								key={'router-card-by-id'}
 								path={'/card/:id'}
 								component={Card}
-								exact
 							/>
 							{routes.map((route: RouteItem) =>
 								route.subRoutes ? (

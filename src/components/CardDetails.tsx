@@ -16,7 +16,7 @@ interface CardDetailsProps {
 const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	return (
 		<>
-			<PageTitle title={card.name} />
+			<h4>{card.name}</h4>
 			<div>{card.type_line}</div>
 		</>
 	);
