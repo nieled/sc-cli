@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { CardsService } from '../api/cardsService';
-import CardDetails from '../components/core/CardDetails';
+import CardDetails from '../components/mtg/CardDetails';
 
 interface CardProps {
 	id: string;
