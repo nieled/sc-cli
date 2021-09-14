@@ -11,9 +11,7 @@ import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(() =>
 	createStyles({
-		searchForm: {
-			width: '25%',
-		},
+		searchForm: {},
 	})
 );
 
@@ -56,7 +54,9 @@ const Search = (): ReactElement => {
 				autoComplete="off"
 			>
 				<Grid container spacing={3}>
-					<TextField label="Card name" {...register('q')} />
+					<Grid item xs={12}>
+						<TextField fullWidth label="Card name" {...register('q')} />
+					</Grid>
 				</Grid>
 			</form>
 			<p>
