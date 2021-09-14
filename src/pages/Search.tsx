@@ -60,9 +60,11 @@ const Search = (): ReactElement => {
 					</Grid>
 				</Grid>
 			</form>
-			<p>
-				{data?.total_cards} cards where the name includes &quot;Aminatou&quot;
-			</p>
+			{data ? (
+				<p>
+					{data?.total_cards} cards where the name includes &quot;{query}&quot;
+				</p>
+			) : null}
 			<Grid container spacing={3}>
 				{data?.data.map((card: Card) => {
 					return (
