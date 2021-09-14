@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { CardsService } from '../api/cardsService';
 import CardDetails from '../components/mtg/CardDetails';
+import CardDetailsSimple from '../components/mtg/CardDetailsSimple';
 
 interface CardProps {
 	id: string;
