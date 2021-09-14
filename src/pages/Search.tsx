@@ -1,4 +1,4 @@
-import { createStyles, Grid, makeStyles, TextField } from '@material-ui/core';
+import { Container, createStyles, Grid, makeStyles, TextField } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(() =>
 	createStyles({
+		root: {},
 		searchForm: {},
 	})
 );
@@ -46,7 +47,7 @@ const Search = (): ReactElement => {
 	}
 
 	return (
-		<>
+		<Container className={classes.root}>
 			<form
 				className={classes.searchForm}
 				onSubmit={onSubmit}
@@ -62,10 +63,16 @@ const Search = (): ReactElement => {
 			<p>
 				{data?.total_cards} cards where the name includes &quot;Aminatou&quot;
 			</p>
-			{data?.data.map((card: Card) => {
-				return <CardDetailsSimple card={card} key={card.id} />;
-			})}
-		</>
+			<Grid container spacing={3}>
+				{data?.data.map((card: Card) => {
+					return (
+						<Grid item xs={6} key={card.id}>
+							<CardDetailsSimple card={card} />
+						</Grid>
+					);
+				})}
+			</Grid>
+		</Container>
 	);
 };
 
