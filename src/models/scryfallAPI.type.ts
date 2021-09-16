@@ -132,7 +132,7 @@ export interface PurchaseUris {
 export interface SymbologyResponse {
 	object: string;
 	has_more: boolean;
-	data: Array<Symbol>;
+	data: Array<symbol>;
 }
 
 export interface Symbol {

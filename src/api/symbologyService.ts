@@ -15,7 +15,6 @@ class SymbologyServiceImpl {
 			.get<SymbologyResponse>(`${this.symbologyUrl}`)
 			.then(response => response.data);
 	}
-
 }
 
 export const SymbologyService = new SymbologyServiceImpl();

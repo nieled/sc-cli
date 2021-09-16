@@ -48,15 +48,13 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	const classes = useStyles();
 
 	// const { symbols, error, isError, isLoading } = useQuery(
-	const symbols = useQuery(
-		'symbology',
-		() => SymbologyService.getSymbols(),
-		{ staleTime: 1000 * 60 * 60 }
-	);
+	const symbols = useQuery('symbology', () => SymbologyService.getSymbols(), {
+		staleTime: 1000 * 60 * 60,
+	});
 
 	const manaCostToSymbols = (manaCost: string) => {
 		return manaCost.match(/[\{]{1}[\w+\/]+[\}]{1}/g)?.map(elm => elm) || [];
-	}
+	};
 
 	if (symbols.isLoading) {
 		return <p>loading...</p>;
@@ -92,16 +90,27 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 							justifyContent="space-around"
 							alignItems="stretch"
 						>
-							<Grid container direction="row" justifyContent="space-between" alignItems="stretch">
+							<Grid
+								container
+								direction="row"
+								justifyContent="space-between"
+								alignItems="stretch"
+							>
 								<Typography variant="h4">{card.name}</Typography>
 								<Box className={classes.manaCost}>
 									{manaCostToSymbols(card.mana_cost).map(cost => {
-										const singleSymbol = symbols.data?.data?.find(symbol => symbol.symbol === cost) || null
-										return singleSymbol ?
+										const singleSymbol =
+											symbols.data?.data?.find(
+												symbol => symbol.symbol === cost
+											) || null;
+										return singleSymbol ? (
 											<Icon key={singleSymbol.symbol} fontSize="medium">
-												<img src={singleSymbol.svg_uri} alt={singleSymbol.english} />
+												<img
+													src={singleSymbol.svg_uri}
+													alt={singleSymbol.english}
+												/>
 											</Icon>
-											: null
+										) : null;
 									})}
 								</Box>
 							</Grid>
