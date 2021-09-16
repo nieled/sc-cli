@@ -1,5 +1,6 @@
 import {
 	Box,
+	CircularProgress,
 	Container,
 	createStyles,
 	Divider,
@@ -57,7 +58,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	};
 
 	if (symbols.isLoading) {
-		return <p>loading...</p>;
+		return <Grid container justify="center" alignItems="center"><CircularProgress /></Grid>;
 	}
 	if (symbols.isError) {
 		return <p>Error :(</p>;

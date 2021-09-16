@@ -1,4 +1,5 @@
 import {
+	CircularProgress,
 	Container,
 	createStyles,
 	Grid,
@@ -46,7 +47,7 @@ const Search = (): ReactElement => {
 	);
 
 	if (isLoading) {
-		return <p>loading...</p>;
+		return <Grid container justify="center" alignItems="center"><CircularProgress /></Grid>;
 	}
 	if (isError) {
 		return <p>Error :(</p>;

@@ -1,3 +1,4 @@
+import { CircularProgress, Grid } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
@@ -18,7 +19,7 @@ const Card = () => {
 	);
 
 	if (isLoading) {
-		return <p>loading...</p>;
+		return <Grid container justify="center" alignItems="center"><CircularProgress /></Grid>;
 	}
 	if (isError) {
 		return <p>Error :(</p>;
