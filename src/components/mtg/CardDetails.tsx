@@ -2,6 +2,7 @@ import {
 	Box,
 	Container,
 	createStyles,
+	Divider,
 	Grid,
 	ImageListItem,
 	makeStyles,
@@ -29,6 +30,13 @@ const useStyles = makeStyles((theme: Theme) =>
 		cardImage: {
 			maxWidth: '100%',
 		},
+		divider: {
+			margin: theme.spacing(2, 0),
+		},
+		manaCost: {
+			display: 'flex',
+			flexDirection: 'row',
+		},
 	})
 );
 
@@ -47,7 +55,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	);
 
 	const manaCostToSymbols = (manaCost: string) => {
-		return manaCost.match(/(\{\w+\})/g)?.map(elm => elm) || [];
+		return manaCost.match(/[\{]{1}[\w+\/]+[\}]{1}/g)?.map(elm => elm) || [];
 	}
 
 	if (symbols.isLoading) {
@@ -84,23 +92,27 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 							justifyContent="space-around"
 							alignItems="stretch"
 						>
-							<Grid container direction="row" justifyContent="space-between">
+							<Grid container direction="row" justifyContent="space-between" alignItems="stretch">
 								<Typography variant="h4">{card.name}</Typography>
-								{manaCostToSymbols(card.mana_cost).map(cost => {
-									const singleSymbol = symbols.data?.data?.find(symbol => symbol.symbol == cost) || null
-									return singleSymbol ?
-										<Icon key={singleSymbol.symbol}>
-											<img src={singleSymbol.svg_uri} alt={singleSymbol.english} />
-										</Icon>
-										: null
-								})}
+								<Box className={classes.manaCost}>
+									{manaCostToSymbols(card.mana_cost).map(cost => {
+										const singleSymbol = symbols.data?.data?.find(symbol => symbol.symbol === cost) || null
+										return singleSymbol ?
+											<Icon key={singleSymbol.symbol} fontSize="medium">
+												<img src={singleSymbol.svg_uri} alt={singleSymbol.english} />
+											</Icon>
+											: null
+									})}
+								</Box>
 							</Grid>
 							<Typography variant="subtitle1">{card.type_line}</Typography>
+							<Divider className={classes.divider} />
 							<Grid>
 								{card.oracle_text.split('\n').map((elm, key) => (
 									<p key={key}>{elm}</p>
 								))}
 							</Grid>
+							<Divider className={classes.divider} />
 							<Grid container direction="row" justifyContent="space-between">
 								<Typography>{card.set_name}</Typography>
 								<Typography>
@@ -109,6 +121,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 										: `$${card.prices.usd ?? ''}${card.prices.usd_foil ?? ''}`}
 								</Typography>
 							</Grid>
+							<Divider className={classes.divider} />
 							<CardLegalities legalities={card.legalities} />
 						</Grid>
 					</Grid>
