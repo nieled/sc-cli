@@ -54,11 +54,15 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	});
 
 	const manaCostToSymbols = (manaCost: string) => {
-		return manaCost.match(/[\{]{1}[\w+\/]+[\}]{1}/g)?.map(elm => elm) || [];
+		return manaCost.match(/[{]{1}[\w+/]+[}]{1}/g)?.map(elm => elm) || [];
 	};
 
 	if (symbols.isLoading) {
-		return <Grid container justify="center" alignItems="center"><CircularProgress /></Grid>;
+		return (
+			<Grid container justify="center" alignItems="center">
+				<CircularProgress />
+			</Grid>
+		);
 	}
 	if (symbols.isError) {
 		return <p>Error :(</p>;
@@ -102,7 +106,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 									{manaCostToSymbols(card.mana_cost).map(cost => {
 										const singleSymbol =
 											symbols.data?.data?.find(
-												symbol => symbol.symbol === cost
+												(symbol: Symbol) => symbol.symbol === cost
 											) || null;
 										return singleSymbol ? (
 											<Icon key={singleSymbol.symbol} fontSize="medium">

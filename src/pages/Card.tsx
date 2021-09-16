@@ -19,7 +19,11 @@ const Card = () => {
 	);
 
 	if (isLoading) {
-		return <Grid container justify="center" alignItems="center"><CircularProgress /></Grid>;
+		return (
+			<Grid container justify="center" alignItems="center">
+				<CircularProgress />
+			</Grid>
+		);
 	}
 	if (isError) {
 		return <p>Error :(</p>;
