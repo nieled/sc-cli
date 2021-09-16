@@ -128,3 +128,24 @@ export interface PurchaseUris {
 	cardmarket: string;
 	cardhoarder: string;
 }
+
+export interface SymbologyResponse {
+	object: string;
+	has_more: boolean;
+	data: Array<Symbol>;
+}
+
+export interface Symbol {
+	object: string;
+	symbol: string;
+	svg_uri: string;
+	loose_variant: null;
+	english: string;
+	transposable: boolean;
+	represents_mana: boolean;
+	appears_in_mana_costs: boolean;
+	cmc: number;
+	funny: boolean;
+	colors: Array<string>;
+	gatherer_alternates: Array<string>;
+}
