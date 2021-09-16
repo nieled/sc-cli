@@ -18,4 +18,4 @@ class SymbologyServiceImpl {
 
 }
 
-export const CardsService = new SymbologyServiceImpl();
+export const SymbologyService = new SymbologyServiceImpl();

@@ -8,11 +8,14 @@ import {
 	Paper,
 	Theme,
 	Typography,
+	Icon,
 } from '@material-ui/core';
 import React, { ReactElement } from 'react';
+import { useQuery } from 'react-query';
 import PageTitle from '../core/PageTitle';
 import { Card } from '../../models/scryfallAPI.type';
 import { CardLegalities } from './CardLegalities';
+import { SymbologyService } from '../../api/symbologyService';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -35,6 +38,24 @@ interface CardDetailsProps {
 
 const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 	const classes = useStyles();
+
+	// const { symbols, error, isError, isLoading } = useQuery(
+	const symbols = useQuery(
+		'symbology',
+		() => SymbologyService.getSymbols(),
+		{ staleTime: 1000 * 60 * 60 }
+	);
+
+	const manaCostToSymbols = (manaCost: string) => {
+		return manaCost.match(/(\{\w+\})/g)?.map(elm => elm) || [];
+	}
+
+	if (symbols.isLoading) {
+		return <p>loading...</p>;
+	}
+	if (symbols.isError) {
+		return <p>Error :(</p>;
+	}
 
 	return (
 		<>
@@ -65,7 +86,14 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 						>
 							<Grid container direction="row" justifyContent="space-between">
 								<Typography variant="h4">{card.name}</Typography>
-								<Typography>{card.mana_cost}</Typography>
+								{manaCostToSymbols(card.mana_cost).map(cost => {
+									const singleSymbol = symbols.data?.data?.find(symbol => symbol.symbol == cost) || null
+									return singleSymbol ?
+										<Icon key={singleSymbol.symbol}>
+											<img src={singleSymbol.svg_uri} alt={singleSymbol.english} />
+										</Icon>
+										: null
+								})}
 							</Grid>
 							<Typography variant="subtitle1">{card.type_line}</Typography>
 							<Grid>
