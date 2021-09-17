@@ -106,7 +106,7 @@ const CardDetails = ({ card }: CardDetailsProps): ReactElement => {
 									{manaCostToSymbols(card.mana_cost).map(cost => {
 										const singleSymbol =
 											symbols.data?.data?.find(
-												(symbol: Symbol) => symbol.symbol === cost
+												symbol => symbol.symbol === cost
 											) || null;
 										return singleSymbol ? (
 											<Icon key={singleSymbol.symbol} fontSize="medium">

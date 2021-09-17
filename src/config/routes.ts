@@ -13,7 +13,7 @@ export const routes: Array<RouteItem> = [
 		title: 'Home',
 		component: Home,
 		path: '/',
-		enabled: true,
+		enabled: false,
 		icon: HomeIcon,
 	},
 	{

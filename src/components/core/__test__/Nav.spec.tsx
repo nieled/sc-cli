@@ -58,7 +58,6 @@ describe('Navigation', () => {
 	});
 
 	it('Handles opening and closing navbar', () => {
-		// const [ open, setOpen ] = React.useState(true);
 		const setOpen = (x: boolean) => !x;
 		const history = createMemoryHistory();
 

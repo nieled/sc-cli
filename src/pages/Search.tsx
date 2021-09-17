@@ -8,10 +8,7 @@ import {
 } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
 import { CardsService } from '../api/cardsService';
-import CardDetails from '../components/mtg/CardDetails';
-import PageTitle from '../components/core/PageTitle';
 import { Card } from '../models/scryfallAPI.type';
 import CardDetailsSimple from '../components/mtg/CardDetailsSimple';
 import { useForm } from 'react-hook-form';
@@ -34,7 +31,6 @@ const Search = (): ReactElement => {
 
 	const {
 		register,
-		setValue,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Query>();
